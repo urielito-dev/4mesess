@@ -538,6 +538,7 @@ function animarGalaxia() {
 
     dibujarEstrellasGalaxia();
 
+    dibujarCorazonGalaxia();
 
     requestAnimationFrame(
         animarGalaxia
@@ -546,3 +547,143 @@ function animarGalaxia() {
 
 
 animarGalaxia();
+
+// =================================
+// CORAZÓN DE ESTRELLAS
+// =================================
+
+const particulasCorazon = [];
+
+const cantidadParticulasCorazon = 650;
+
+const centroCorazonX = 0.5;
+const centroCorazonY = 0.5;
+
+
+// =================================
+// CREAR PARTÍCULAS
+// =================================
+
+for (let i = 0; i < cantidadParticulasCorazon; i++) {
+
+    const t =
+        Math.random() * Math.PI * 2;
+
+    const escala =
+        Math.sqrt(Math.random());
+
+    // Fórmula de corazón
+    const x =
+        16 * Math.pow(Math.sin(t), 3);
+
+    const y =
+        -(
+            13 * Math.cos(t)
+            - 5 * Math.cos(2 * t)
+            - 2 * Math.cos(3 * t)
+            - Math.cos(4 * t)
+        );
+
+    particulasCorazon.push({
+
+        x: x * escala,
+
+        y: y * escala,
+
+        tamaño:
+            Math.random() * 1.8 + 0.4,
+
+        brillo:
+            Math.random() * 0.6 + 0.4,
+
+        fase:
+            Math.random() *
+            Math.PI * 2,
+
+        velocidad:
+            Math.random() *
+            0.02 + 0.005
+    });
+}
+
+// =================================
+// DIBUJAR CORAZÓN DE ESTRELLAS
+// =================================
+
+function dibujarCorazonGalaxia() {
+
+    const centroX =
+        anchoGalaxia * centroCorazonX;
+
+    const centroY =
+        altoGalaxia * centroCorazonY;
+
+    const escalaCorazon =
+        Math.min(
+            anchoGalaxia,
+            altoGalaxia
+        ) * 0.018;
+
+
+    for (
+        const particula of particulasCorazon
+    ) {
+
+        // Movimiento suave
+        particula.fase +=
+            particula.velocidad;
+
+
+        const movimientoX =
+            Math.sin(particula.fase) * 0.6;
+
+        const movimientoY =
+            Math.cos(particula.fase) * 0.6;
+
+
+        // Posición en pantalla
+        const x =
+            centroX +
+            particula.x *
+            escalaCorazon +
+            movimientoX;
+
+        const y =
+            centroY +
+            particula.y *
+            escalaCorazon +
+            movimientoY;
+
+
+        // Brillo
+        const brillo =
+            particula.brillo *
+            (
+                0.7 +
+                Math.sin(particula.fase) * 0.3
+            );
+
+
+        // Partícula
+        ctxGalaxia.beginPath();
+
+        ctxGalaxia.arc(
+            x,
+            y,
+            particula.tamaño,
+            0,
+            Math.PI * 2
+        );
+
+
+        ctxGalaxia.fillStyle =
+            `rgba(
+                255,
+                100,
+                190,
+                ${brillo}
+            )`;
+
+        ctxGalaxia.fill();
+    }
+}
