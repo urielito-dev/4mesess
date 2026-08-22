@@ -351,7 +351,8 @@ function animarCielo() {
 
     dibujarEstrellas();
 
-    dibujarConstelaciones();
+    ctx.fillStyle = "red";
+    ctx.fillRect(50, 50, 100, 100);
 
     dibujarEstrellasFugaces();
 
