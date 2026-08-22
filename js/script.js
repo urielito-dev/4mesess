@@ -546,8 +546,6 @@ function animarGalaxia() {
 }
 
 
-animarGalaxia();
-
 // =================================
 // CORAZÓN DE ESTRELLAS
 // =================================
@@ -687,3 +685,5 @@ function dibujarCorazonGalaxia() {
         ctxGalaxia.fill();
     }
 }
+
+animarGalaxia();
