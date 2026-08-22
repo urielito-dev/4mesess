@@ -87,7 +87,11 @@ boton.addEventListener("click", () => {
 
             clearInterval(intervalo);
 
-            final.style.display = "block";
+            setTimeout(() => {
+
+                document.body.classList.add("transicion-galaxia");
+
+            }, 1000);
 
         }
 
