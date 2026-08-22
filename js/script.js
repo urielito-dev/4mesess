@@ -427,6 +427,16 @@ for (
     profundidad:
         Math.random(),
 
+     angulo:
+          Math.random() * Math.PI * 2,
+
+     velocidadMovimiento:
+          Math.random() * 0.0008 + 0.0002,
+
+     desplazamientoX: 0,
+
+     desplazamientoY: 0,
+
     radio:
         Math.random() * 1.8 + 0.2,
 
@@ -454,6 +464,19 @@ function dibujarEstrellasGalaxia() {
         const estrella of estrellasGalaxia
     ) {
 
+        estrella.angulo +=
+            estrella.velocidadMovimiento;
+
+        estrella.desplazamientoX =
+            Math.sin(estrella.angulo) *
+            estrella.profundidad *
+            0.8;
+
+        estrella.desplazamientoY =
+            Math.cos(estrella.angulo) *
+            estrella.profundidad *
+            0.8;
+    
         estrella.fase +=
             estrella.velocidad;
 
@@ -474,9 +497,14 @@ function dibujarEstrellasGalaxia() {
              (0.5 + estrella.profundidad * 1.5);
 
         ctxGalaxia.arc(
-            estrella.x,
-            estrella.y,
+            estrella.x +
+            estrella.desplazamientoX,
+
+            estrella.y +
+            estrella.desplazamientoY,
+
             tamaño,
+
             0,
             Math.PI * 2
         );
