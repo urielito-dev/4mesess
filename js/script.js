@@ -351,6 +351,8 @@ function animarCielo() {
 
     dibujarEstrellas();
 
+    dibujarConstelaciones();
+
     dibujarEstrellasFugaces();
 
 
@@ -361,3 +363,181 @@ function animarCielo() {
 
 
 animarCielo();
+
+
+// ================================
+// CONSTELACIONES
+// ================================
+
+const constelaciones = {
+
+    // ============================
+    // CÁNCER ♋
+    // ============================
+
+    cancer: {
+
+        estrellas: [
+            { x: 0.17, y: 0.30 },
+            { x: 0.23, y: 0.25 },
+            { x: 0.29, y: 0.31 },
+            { x: 0.25, y: 0.39 },
+            { x: 0.18, y: 0.43 },
+            { x: 0.12, y: 0.37 }
+        ],
+
+        lineas: [
+            [0, 1],
+            [1, 2],
+            [1, 3],
+            [3, 4],
+            [4, 5],
+            [5, 0],
+            [3, 5]
+        ]
+    },
+
+
+    // ============================
+    // CAPRICORNIO ♑
+    // ============================
+
+    capricornio: {
+
+        estrellas: [
+            { x: 0.71, y: 0.32 },
+            { x: 0.77, y: 0.26 },
+            { x: 0.83, y: 0.30 },
+            { x: 0.88, y: 0.37 },
+            { x: 0.83, y: 0.43 },
+            { x: 0.76, y: 0.40 },
+            { x: 0.72, y: 0.46 }
+        ],
+
+        lineas: [
+            [0, 1],
+            [1, 2],
+            [2, 3],
+            [3, 4],
+            [4, 5],
+            [5, 0],
+            [5, 6]
+        ]
+    }
+};
+
+
+// ================================
+// DIBUJAR CONSTELACIÓN
+// ================================
+
+function dibujarConstelacion(constelacion) {
+
+    const estrellasConst =
+        constelacion.estrellas;
+
+
+    // ----------------------------
+    // Líneas
+    // ----------------------------
+
+    ctx.beginPath();
+
+    for (const linea of constelacion.lineas) {
+
+        const estrella1 =
+            estrellasConst[linea[0]];
+
+        const estrella2 =
+            estrellasConst[linea[1]];
+
+
+        const x1 =
+            estrella1.x * ancho;
+
+        const y1 =
+            estrella1.y * alto;
+
+        const x2 =
+            estrella2.x * ancho;
+
+        const y2 =
+            estrella2.y * alto;
+
+
+        ctx.moveTo(x1, y1);
+
+        ctx.lineTo(x2, y2);
+    }
+
+    ctx.strokeStyle =
+        "rgba(255, 150, 210, 0.28)";
+
+    ctx.lineWidth = 1;
+
+    ctx.stroke();
+
+
+    // ----------------------------
+    // Estrellas
+    // ----------------------------
+
+    for (const estrella of estrellasConst) {
+
+        const x =
+            estrella.x * ancho;
+
+        const y =
+            estrella.y * alto;
+
+
+        // Brillo exterior
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            5,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            "rgba(255, 120, 190, 0.12)";
+
+        ctx.fill();
+
+
+        // Estrella principal
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            1.7,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            "rgba(255, 235, 250, 0.95)";
+
+        ctx.fill();
+    }
+}
+
+
+// ================================
+// DIBUJAR AMBAS CONSTELACIONES
+// ================================
+
+function dibujarConstelaciones() {
+
+    dibujarConstelacion(
+        constelaciones.cancer
+    );
+
+    dibujarConstelacion(
+        constelaciones.capricornio
+    );
+}
