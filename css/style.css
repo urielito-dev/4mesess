@@ -340,14 +340,16 @@ body.transicion-galaxia::after {
         opacity: 1;
     }
 
-    80% {
+    65% {
+        width: 250vmax;
+        height: 250vmax;
         opacity: 1;
     }
 
     100% {
         width: 250vmax;
         height: 250vmax;
-        opacity: 1;
+        opacity: 0;
     }
 
 }
