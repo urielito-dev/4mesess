@@ -325,7 +325,7 @@ body.transicion-galaxia::after {
 
     z-index: 999;
 
-    animation: cerrarDesdeCentro 2s ease-in forwards;
+    animation: cerrarDesdeCentro 3s ease-in forwards;
 
     pointer-events: none;
 }
@@ -372,7 +372,7 @@ body.transicion-galaxia::after {
 
     pointer-events: none;
 
-    animation: aparecerGalaxia 5s ease 3s forwards;
+    animation: aparecerGalaxia 10s ease 4s forwards;
 }
 
 
