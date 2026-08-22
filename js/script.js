@@ -368,56 +368,107 @@ function animarCielo() {
 
 const constelaciones = {
 
-    // ============================
+    // ================================
     // CÁNCER ♋
-    // ============================
+    // Basado en la distribución real
+    // de sus estrellas principales
+    // ================================
 
     cancer: {
 
         estrellas: [
-            { x: 0.18, y: 0.34 }, // Acubens
-            { x: 0.25, y: 0.28 }, // Asellus Borealis
-            { x: 0.25, y: 0.38 }, // Asellus Australis
-            { x: 0.32, y: 0.33 }, // Praesepe / zona central
-            { x: 0.38, y: 0.28 }, // 55 Cancri
-            { x: 0.37, y: 0.40 }  // Iota Cancri
+
+            // Tarf / Beta Cancri
+            { x: 0.08, y: 0.48, brillo: 1.0 },
+
+            // Acubens / Alpha Cancri
+            { x: 0.25, y: 0.60, brillo: 0.85 },
+
+            // Asellus Borealis / Gamma Cancri
+            { x: 0.47, y: 0.28, brillo: 0.75 },
+
+            // Asellus Australis / Delta Cancri
+            { x: 0.48, y: 0.55, brillo: 0.95 },
+
+            // Tegmine / Zeta Cancri
+            { x: 0.32, y: 0.82, brillo: 0.75 },
+
+            // Iota Cancri
+            { x: 0.68, y: 0.72, brillo: 0.70 },
+
+            // estrella secundaria
+            { x: 0.76, y: 0.55, brillo: 0.45 }
         ],
 
         lineas: [
+
             [0, 1],
+
             [1, 3],
-            [1, 2],
-            [2, 3],
+
+            [3, 2],
+
             [3, 4],
-            [3, 5]
+
+            [4, 5],
+
+            [5, 6]
         ]
     },
 
 
-    // ============================
+    // ================================
     // CAPRICORNIO ♑
-    // ============================
+    // Basado en la distribución real
+    // de sus estrellas principales
+    // ================================
 
     capricornio: {
 
         estrellas: [
-            { x: 0.66, y: 0.30 }, // Deneb Algedi
-            { x: 0.72, y: 0.25 }, // Nashira
-            { x: 0.78, y: 0.29 }, // Dabih
-            { x: 0.84, y: 0.36 }, // Algedi
-            { x: 0.80, y: 0.43 }, // Zeta Cap
-            { x: 0.73, y: 0.40 }, // Theta Cap
-            { x: 0.68, y: 0.46 }  // Omega Cap
+
+            // Algedi / Alpha Capricorni
+            { x: 0.20, y: 0.32, brillo: 0.90 },
+
+            // Dabih / Beta Capricorni
+            { x: 0.30, y: 0.39, brillo: 1.0 },
+
+            // Zeta Capricorni
+            { x: 0.50, y: 0.63, brillo: 0.75 },
+
+            // Theta Capricorni
+            { x: 0.61, y: 0.70, brillo: 0.60 },
+
+            // Omega Capricorni
+            { x: 0.72, y: 0.78, brillo: 0.65 },
+
+            // Nashira / Gamma Capricorni
+            { x: 0.76, y: 0.52, brillo: 0.90 },
+
+            // Deneb Algedi / Delta Capricorni
+            { x: 0.88, y: 0.45, brillo: 1.0 },
+
+            // Iota Capricorni
+            { x: 0.67, y: 0.37, brillo: 0.60 }
         ],
 
         lineas: [
+
             [0, 1],
-            [1, 2],
-            [2, 3],
-            [3, 4],
-            [4, 5],
+
+            [1, 7],
+
+            [7, 5],
+
             [5, 6],
-            [6, 0]
+
+            [6, 4],
+
+            [4, 3],
+
+            [3, 2],
+
+            [2, 1]
         ]
     }
 };
