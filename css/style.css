@@ -410,3 +410,11 @@ body.transicion-galaxia .contenedor {
     opacity: 1;
     transition: none;
 }
+
+/* =================================
+   OCULTAR CUADRO AL ENTRAR A GALAXIA
+   ================================= */
+
+body.transicion-galaxia .contenedor {
+    z-index: 1;
+}
