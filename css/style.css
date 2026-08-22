@@ -368,12 +368,13 @@ body.transicion-galaxia::after {
 
     opacity: 0;
 
-    z-index: 1;
+    z-index: 10;
 
     pointer-events: none;
 
-    transition: opacity 5s ease;
+    animation: aparecerGalaxia 5s ease 3s forwards;
 }
+
 
 #canvasGalaxia {
     position: absolute;
@@ -383,4 +384,17 @@ body.transicion-galaxia::after {
 
     width: 100%;
     height: 100%;
+}
+
+
+@keyframes aparecerGalaxia {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }
