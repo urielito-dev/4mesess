@@ -369,13 +369,13 @@ body.transicion-galaxia::after {
 
     background: #000;
 
-    opacity: 0;
+    opacity: 1;
 
     z-index: 1;
 
     pointer-events: none;
 
-    animation: aparecerGalaxia 10s ease 7s forwards;
+    animation: none;
 }
 
 
