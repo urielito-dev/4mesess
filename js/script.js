@@ -362,9 +362,6 @@ function animarCielo() {
 }
 
 
-animarCielo();
-
-
 // ================================
 // CONSTELACIONES
 // ================================
