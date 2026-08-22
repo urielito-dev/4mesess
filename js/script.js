@@ -91,6 +91,12 @@ boton.addEventListener("click", () => {
 
                 document.body.classList.add("transicion-galaxia");
 
+                setTimeout(() => {
+
+                document.getElementById("galaxia").style.opacity = "1";
+
+                }, 2000);
+
             }, 1000);
 
         }
