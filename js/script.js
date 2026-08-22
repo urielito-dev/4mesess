@@ -405,7 +405,7 @@ window.addEventListener(
 
 const estrellasGalaxia = [];
 
-const cantidadEstrellasGalaxia = 500;
+const cantidadEstrellasGalaxia = 700;
 
 
 for (
@@ -416,27 +416,30 @@ for (
 
     estrellasGalaxia.push({
 
-        x:
-            Math.random() *
-            anchoGalaxia,
+    x:
+        Math.random() *
+        anchoGalaxia,
 
-        y:
-            Math.random() *
-            altoGalaxia,
+    y:
+        Math.random() *
+        altoGalaxia,
 
-        radio:
-            Math.random() * 1.4 + 0.2,
+    profundidad:
+        Math.random(),
 
-        brillo:
-            Math.random() * 0.8 + 0.2,
+    radio:
+        Math.random() * 1.8 + 0.2,
 
-        velocidad:
-            Math.random() * 0.003 + 0.001,
+    brillo:
+        Math.random() * 0.8 + 0.2,
 
-        fase:
-            Math.random() *
-            Math.PI *
-            2
+    velocidad:
+        Math.random() * 0.003 + 0.001,
+
+    fase:
+        Math.random() *
+        Math.PI *
+        2
     });
 }
 
@@ -466,21 +469,28 @@ function dibujarEstrellasGalaxia() {
         ctxGalaxia.beginPath();
 
 
+        const tamaño =
+            estrella.radio *
+             (0.5 + estrella.profundidad * 1.5);
+
         ctxGalaxia.arc(
             estrella.x,
             estrella.y,
-            estrella.radio,
+            tamaño,
             0,
             Math.PI * 2
         );
 
 
+        const brilloProfundidad =
+            brillo *
+            (0.35 + estrella.profundidad * 0.65);
+
         ctxGalaxia.fillStyle =
-            `rgba(255,255,255,${brillo})`;
+            `rgba(255,255,255,${brilloProfundidad})`;
 
-
-        ctxGalaxia.fill();
-    }
+            ctxGalaxia.fill();
+     }
 }
 
 
