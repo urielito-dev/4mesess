@@ -301,3 +301,46 @@ h1 {
         padding: 14px 20px;
     }
 }
+
+/* =================================
+   TRANSICIÓN HACIA LA GALAXIA
+   ================================= */
+
+body.transicion-galaxia::after {
+    content: "";
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    width: 0;
+    height: 0;
+
+    border-radius: 50%;
+
+    background: #000;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 999;
+
+    animation: cerrarDesdeCentro 2s ease-in forwards;
+
+    pointer-events: none;
+}
+
+
+@keyframes cerrarDesdeCentro {
+
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    100% {
+        width: 250vmax;
+        height: 250vmax;
+    }
+
+}
