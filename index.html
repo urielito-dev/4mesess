@@ -6,278 +6,7 @@
 
     <title>Felices 4 meses ❤️</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            min-height: 100vh;
-            background: #080508;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
-        }
-
-        /* CUADRO PRINCIPAL */
-        .contenedor {
-            width: 90%;
-            max-width: 500px;
-            min-height: 500px;
-
-            background: rgba(15, 5, 15, 0.92);
-
-            border: 2px solid #ff4fa3;
-            border-radius: 18px;
-
-            box-shadow:
-                0 0 10px #ff4fa3,
-                0 0 25px rgba(255, 79, 163, 0.8),
-                0 0 55px rgba(255, 79, 163, 0.45);
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            padding: 40px 25px;
-
-            position: relative;
-        }
-
-        /* CORAZÓN */
-        .corazon-contenedor {
-            position: relative;
-            width: 130px;
-            height: 120px;
-            margin-bottom: 25px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .corazon {
-            position: relative;
-            width: 75px;
-            height: 75px;
-
-            background: #ff1744;
-
-            transform: rotate(-45deg);
-
-            box-shadow:
-                0 0 10px #ff1744,
-                0 0 25px rgba(255, 23, 68, 0.9),
-                0 0 50px rgba(255, 23, 68, 0.55);
-
-            transition: all 0.3s ease;
-        }
-
-        .corazon::before,
-        .corazon::after {
-            content: "";
-            position: absolute;
-
-            width: 75px;
-            height: 75px;
-
-            background: #ff1744;
-
-            border-radius: 50%;
-        }
-
-        .corazon::before {
-            top: -37px;
-            left: 0;
-        }
-
-        .corazon::after {
-            top: 0;
-            left: 37px;
-        }
-
-        /* TÍTULO */
-        h1 {
-            color: white;
-
-            font-size: 34px;
-            font-weight: 500;
-
-            text-align: center;
-
-            text-shadow:
-                0 0 8px rgba(255, 255, 255, 0.7),
-                0 0 20px rgba(255, 79, 163, 0.5);
-
-            margin-bottom: 35px;
-        }
-
-        /* BOTÓN */
-        #boton {
-            padding: 15px 28px;
-
-            border: 1px solid #ff4fa3;
-            border-radius: 30px;
-
-            background: rgba(255, 79, 163, 0.08);
-
-            color: white;
-
-            font-size: 16px;
-
-            cursor: pointer;
-
-            box-shadow:
-                0 0 10px rgba(255, 79, 163, 0.6),
-                0 0 25px rgba(255, 79, 163, 0.25);
-
-            transition: 0.3s ease;
-        }
-
-        #boton:hover {
-            background: rgba(255, 79, 163, 0.2);
-
-            box-shadow:
-                0 0 15px #ff4fa3,
-                0 0 35px rgba(255, 79, 163, 0.6);
-
-            transform: scale(1.04);
-        }
-
-        /* BARRA DE CARGA */
-        #carga-contenedor {
-            display: none;
-
-            width: 85%;
-            max-width: 350px;
-
-            text-align: center;
-        }
-
-        .barra-fondo {
-            width: 100%;
-            height: 12px;
-
-            background: rgba(255, 255, 255, 0.08);
-
-            border: 1px solid rgba(255, 79, 163, 0.5);
-
-            border-radius: 20px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 0 8px rgba(255, 79, 163, 0.3);
-        }
-
-        .barra {
-            width: 0%;
-            height: 100%;
-
-            background: #ff4fa3;
-
-            border-radius: 20px;
-
-            box-shadow:
-                0 0 10px #ff4fa3,
-                0 0 20px rgba(255, 79, 163, 0.8);
-
-            transition: width 0.05s linear;
-        }
-
-        #porcentaje {
-            color: #ffb3d9;
-
-            font-size: 14px;
-
-            margin-top: 10px;
-
-            text-shadow:
-                0 0 8px rgba(255, 79, 163, 0.7);
-        }
-
-        /* CORAZÓN DURANTE LA CARGA */
-        .corazon-carga {
-            background: transparent;
-
-            box-shadow: none;
-
-            overflow: hidden;
-        }
-
-        .corazon-carga::before,
-        .corazon-carga::after {
-            background: transparent;
-        }
-
-        /* RELLENO DEL CORAZÓN */
-        .relleno-corazon {
-            position: absolute;
-
-            left: 0;
-            bottom: 0;
-
-            width: 100%;
-            height: 0%;
-
-            background: #ff1744;
-
-            transition: height 0.05s linear;
-
-            z-index: -1;
-        }
-
-        .corazon-carga {
-            background: transparent;
-
-            border: none;
-
-            box-shadow:
-                0 0 8px #ff1744,
-                0 0 20px rgba(255, 23, 68, 0.7);
-
-            position: relative;
-        }
-
-        /* MENSAJE FINAL */
-        #final {
-            display: none;
-
-            color: #ffb3d9;
-
-            font-size: 18px;
-
-            margin-top: 25px;
-
-            text-align: center;
-
-            text-shadow:
-                0 0 10px rgba(255, 79, 163, 0.7);
-        }
-
-        /* ADAPTACIÓN PARA CELULAR */
-        @media (max-width: 500px) {
-
-            .contenedor {
-                min-height: 450px;
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            #boton {
-                font-size: 14px;
-                padding: 14px 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -285,7 +14,40 @@
     <div class="contenedor">
 
         <div class="corazon-contenedor">
-            <div class="corazon" id="corazon"></div>
+            <svg class="corazon-svg" viewBox="0 0 100 100" id="corazon">
+
+                <defs>
+                    <clipPath id="clipCorazon">
+                        <path d="M50 90 L10 50
+                                 C-5 30 10 5 30 8
+                                 C40 9 47 15 50 25
+                                 C53 15 60 9 70 8
+                                 C90 5 105 30 90 50
+                                 Z"/>
+                    </clipPath>
+                </defs>
+
+                <rect
+                    id="rellenoCorazon"
+                    x="0"
+                    y="100"
+                    width="100"
+                    height="0"
+                    fill="#ff1744"
+                    clip-path="url(#clipCorazon)"
+                />
+
+                <path
+                    d="M50 90 L10 50
+                       C-5 30 10 5 30 8
+                       C40 9 47 15 50 25
+                       C53 15 60 9 70 8
+                       C90 5 105 30 90 50
+                       Z"
+                    class="borde-corazon"
+                />
+
+            </svg>
         </div>
 
         <h1 id="titulo">Felices 4 meses</h1>
@@ -312,81 +74,7 @@
 
     </div>
 
-
-    <script>
-
-        const boton = document.getElementById("boton");
-        const titulo = document.getElementById("titulo");
-
-        const cargaContenedor =
-            document.getElementById("carga-contenedor");
-
-        const barra =
-            document.getElementById("barra");
-
-        const porcentaje =
-            document.getElementById("porcentaje");
-
-        const corazon =
-            document.getElementById("corazon");
-
-        const final =
-            document.getElementById("final");
-
-
-        boton.addEventListener("click", () => {
-
-            /* Cambiar título */
-            titulo.textContent = "Espera";
-
-            /* Ocultar botón */
-            boton.style.display = "none";
-
-            /* Mostrar barra */
-            cargaContenedor.style.display = "block";
-
-            /* Convertir corazón en corazón de carga */
-            corazon.classList.add("corazon-carga");
-
-            /* Crear relleno */
-            const relleno = document.createElement("div");
-
-            relleno.classList.add("relleno-corazon");
-
-            corazon.appendChild(relleno);
-
-
-            let progreso = 0;
-
-
-            const intervalo = setInterval(() => {
-
-                progreso++;
-
-                barra.style.width = progreso + "%";
-
-                porcentaje.textContent =
-                    progreso + "%";
-
-                /* El corazón se llena desde abajo */
-                relleno.style.height =
-                    progreso + "%";
-
-
-                /* Cuando termina */
-                if (progreso >= 100) {
-
-                    clearInterval(intervalo);
-
-                    final.style.display = "block";
-
-                }
-
-            }, 50);
-
-        });
-
-    </script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>
