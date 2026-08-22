@@ -375,21 +375,20 @@ const constelaciones = {
     cancer: {
 
         estrellas: [
-            { x: 0.17, y: 0.30 },
-            { x: 0.23, y: 0.25 },
-            { x: 0.29, y: 0.31 },
-            { x: 0.25, y: 0.39 },
-            { x: 0.18, y: 0.43 },
-            { x: 0.12, y: 0.37 }
+            { x: 0.18, y: 0.34 }, // Acubens
+            { x: 0.25, y: 0.28 }, // Asellus Borealis
+            { x: 0.25, y: 0.38 }, // Asellus Australis
+            { x: 0.32, y: 0.33 }, // Praesepe / zona central
+            { x: 0.38, y: 0.28 }, // 55 Cancri
+            { x: 0.37, y: 0.40 }  // Iota Cancri
         ],
 
         lineas: [
             [0, 1],
-            [1, 2],
             [1, 3],
+            [1, 2],
+            [2, 3],
             [3, 4],
-            [4, 5],
-            [5, 0],
             [3, 5]
         ]
     },
@@ -402,13 +401,13 @@ const constelaciones = {
     capricornio: {
 
         estrellas: [
-            { x: 0.71, y: 0.32 },
-            { x: 0.77, y: 0.26 },
-            { x: 0.83, y: 0.30 },
-            { x: 0.88, y: 0.37 },
-            { x: 0.83, y: 0.43 },
-            { x: 0.76, y: 0.40 },
-            { x: 0.72, y: 0.46 }
+            { x: 0.66, y: 0.30 }, // Deneb Algedi
+            { x: 0.72, y: 0.25 }, // Nashira
+            { x: 0.78, y: 0.29 }, // Dabih
+            { x: 0.84, y: 0.36 }, // Algedi
+            { x: 0.80, y: 0.43 }, // Zeta Cap
+            { x: 0.73, y: 0.40 }, // Theta Cap
+            { x: 0.68, y: 0.46 }  // Omega Cap
         ],
 
         lineas: [
@@ -417,12 +416,11 @@ const constelaciones = {
             [2, 3],
             [3, 4],
             [4, 5],
-            [5, 0],
-            [5, 6]
+            [5, 6],
+            [6, 0]
         ]
     }
 };
-
 
 // ================================
 // DIBUJAR CONSTELACIÓN
