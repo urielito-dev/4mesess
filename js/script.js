@@ -351,8 +351,7 @@ function animarCielo() {
 
     dibujarEstrellas();
 
-    ctx.fillStyle = "red";
-    ctx.fillRect(50, 50, 100, 100);
+    dibujarConstelaciones();
 
     dibujarEstrellasFugaces();
 
@@ -472,9 +471,9 @@ function dibujarConstelacion(constelacion) {
     }
 
     ctx.strokeStyle =
-        "rgba(255, 150, 210, 0.28)";
+        "rgba(255, 0, 255, 1)";
 
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 4;
 
     ctx.stroke();
 
@@ -515,7 +514,7 @@ function dibujarConstelacion(constelacion) {
         ctx.arc(
             x,
             y,
-            1.7,
+            6,
             0,
             Math.PI * 2
         );
