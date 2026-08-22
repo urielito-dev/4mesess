@@ -58,6 +58,7 @@ body {
 
 .contenedor {
     z-index: 2;
+    transition: none;
 }
 
 
@@ -323,7 +324,7 @@ body.transicion-galaxia::after {
 
     transform: translate(-50%, -50%);
 
-    z-index: 999;
+    z-index: 9999;
 
     animation: cerrarDesdeCentro 3s ease-in forwards;
 
@@ -346,7 +347,7 @@ body.transicion-galaxia::after {
     100% {
         width: 250vmax;
         height: 250vmax;
-        opacity: 0;
+        opacity: 1;
     }
 
 }
@@ -368,11 +369,11 @@ body.transicion-galaxia::after {
 
     opacity: 0;
 
-    z-index: 10;
+    z-index: 1;
 
     pointer-events: none;
 
-    animation: aparecerGalaxia 10s ease 4s forwards;
+    animation: aparecerGalaxia 10s ease 7s forwards;
 }
 
 
@@ -397,4 +398,13 @@ body.transicion-galaxia::after {
         opacity: 1;
     }
 
+}
+
+/* =================================
+   EL CUADRO NO SE DESVANECE
+   ================================= */
+
+body.transicion-galaxia .contenedor {
+    opacity: 1;
+    transition: none;
 }
