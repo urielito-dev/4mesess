@@ -370,3 +370,147 @@ function animarCielo() {
 }
 
 animarCielo();
+
+// =================================
+// GALAXIA - ESTRELLAS
+// =================================
+
+const canvasGalaxia =
+    document.getElementById("canvasGalaxia");
+
+const ctxGalaxia =
+    canvasGalaxia.getContext("2d");
+
+
+let anchoGalaxia;
+let altoGalaxia;
+
+
+function ajustarCanvasGalaxia() {
+
+    anchoGalaxia = window.innerWidth;
+    altoGalaxia = window.innerHeight;
+
+    canvasGalaxia.width = anchoGalaxia;
+    canvasGalaxia.height = altoGalaxia;
+}
+
+
+ajustarCanvasGalaxia();
+
+
+window.addEventListener(
+    "resize",
+    ajustarCanvasGalaxia
+);
+
+
+// =================================
+// CREAR ESTRELLAS
+// =================================
+
+const estrellasGalaxia = [];
+
+const cantidadEstrellasGalaxia = 500;
+
+
+for (
+    let i = 0;
+    i < cantidadEstrellasGalaxia;
+    i++
+) {
+
+    estrellasGalaxia.push({
+
+        x:
+            Math.random() *
+            anchoGalaxia,
+
+        y:
+            Math.random() *
+            altoGalaxia,
+
+        radio:
+            Math.random() * 1.4 + 0.2,
+
+        brillo:
+            Math.random() * 0.8 + 0.2,
+
+        velocidad:
+            Math.random() * 0.003 + 0.001,
+
+        fase:
+            Math.random() *
+            Math.PI *
+            2
+    });
+}
+
+
+// =================================
+// DIBUJAR ESTRELLAS
+// =================================
+
+function dibujarEstrellasGalaxia() {
+
+    for (
+        const estrella of estrellasGalaxia
+    ) {
+
+        estrella.fase +=
+            estrella.velocidad;
+
+
+        const brillo =
+            estrella.brillo *
+            (
+                0.65 +
+                Math.sin(estrella.fase) * 0.35
+            );
+
+
+        ctxGalaxia.beginPath();
+
+
+        ctxGalaxia.arc(
+            estrella.x,
+            estrella.y,
+            estrella.radio,
+            0,
+            Math.PI * 2
+        );
+
+
+        ctxGalaxia.fillStyle =
+            `rgba(255,255,255,${brillo})`;
+
+
+        ctxGalaxia.fill();
+    }
+}
+
+
+// =================================
+// ANIMACIÓN DE LA GALAXIA
+// =================================
+
+function animarGalaxia() {
+
+    ctxGalaxia.clearRect(
+        0,
+        0,
+        anchoGalaxia,
+        altoGalaxia
+    );
+
+
+    dibujarEstrellasGalaxia();
+
+
+    requestAnimationFrame(
+        animarGalaxia
+    );
+}
+
+
+animarGalaxia();
