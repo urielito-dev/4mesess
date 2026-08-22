@@ -541,3 +541,5 @@ function dibujarConstelaciones() {
         constelaciones.capricornio
     );
 }
+
+animarCielo();
